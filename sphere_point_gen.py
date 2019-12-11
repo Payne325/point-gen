@@ -2,7 +2,18 @@ import numpy as np
 import argparse as argparse
 import math
 
+class PointGenerationException(Exception):
+    #Raised when an error occurs generating point data
+    pass
+
 def generate_points_on_sphere(position, radius, number_of_points):
+    
+    if number_of_points <= 4:
+        raise PointGenerationException('Sphere Point Generation: num of points should be at least 5. Actual value {}'.format(number_of_points))
+    
+    if radius <= 0:
+        raise PointGenerationException('Sphere Point Generation: Radius should be greater than 0. Actual value {}'.format(radius))
+
     generated_nums = np.random.normal(0.0, 1, number_of_points * 3)
     points_on_sphere = []
 

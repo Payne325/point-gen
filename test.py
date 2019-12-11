@@ -88,13 +88,17 @@ class TestSpherePointGenerationMethods(unittest.TestCase):
         points = generate_points_on_sphere(position, radius, number_of_points=100)
         self.assert_calculated_points_lie_on_sphere_surface(position, radius, points)
 
-    @unittest.skip("To Be implemented")
     def test_exception_thrown_when_asked_to_generate_4_points_on_sphere(self):
-        self.assertTrue(False)
+        self.assertRaises(PointGenerationException, generate_points_on_sphere, [0, 0, 0], 10, number_of_points=4)
 
-    @unittest.skip("To Be implemented")
     def test_exception_thrown_when_asked_to_generate_0_points_on_sphere(self):
-        self.assertTrue(False)
+        self.assertRaises(PointGenerationException, generate_points_on_sphere, [0, 0, 0], 10, number_of_points=0)
+
+    def test_exception_thrown_when_asked_to_generate_points_on_sphere_with_negative_radius(self):
+        self.assertRaises(PointGenerationException, generate_points_on_sphere, [0, 0, 0], -10, number_of_points=10)
+
+    def test_exception_thrown_when_asked_to_generate_points_on_sphere_with_zero_radius(self):
+        self.assertRaises(PointGenerationException, generate_points_on_sphere, [0, 0, 0], 0, number_of_points=10)
 
     def assert_calculated_points_lie_on_sphere_surface(self, position, radius, points):
         for point in points:
