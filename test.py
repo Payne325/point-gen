@@ -3,6 +3,8 @@ import unittest
 class TestSpherePointGenerationMethods(unittest.TestCase):
 
     def test_can_generate_5_points_on_sphere_at_origin(self):
+
+        
         self.assertTrue(False)
 
     def test_can_generate_10_points_on_sphere_at_origin(self):
