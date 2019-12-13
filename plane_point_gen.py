@@ -30,7 +30,7 @@ def generate_points_on_plane(position, normal, radius, number_of_points):
         random_point = [j * radius for j in random_point]
 
         #translate to the plane
-        random_point += position
+        random_point = [k + position[j] for j, k in enumerate(random_point)]
 
         plane_points.append(random_point)
 
