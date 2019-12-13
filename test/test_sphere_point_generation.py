@@ -1,6 +1,6 @@
 import unittest
 import math
-from sphere_point_gen import *
+from src.sphere_point_gen import *
 
 class TestSpherePointGenerationMethods(unittest.TestCase):
 
