@@ -8,6 +8,16 @@ class PointGenerationException(Exception):
     pass
 
 def generate_points_on_plane(position, normal, radius, number_of_points):
+    
+    if number_of_points <= 0:
+        raise PointGenerationException('Plane Point Generation: num of points should be at least 1. Actual value {}'.format(number_of_points))
+    
+    if radius <= 0:
+        raise PointGenerationException('Plane Point Generation: Radius should be Greater than 0. Actual value {}'.format(radius))
+    
+    if normal == [0, 0, 0]:
+        raise PointGenerationException('Plane Point Generation: Normal with magnitude greater than 0 must be supplied!')
+    
     plane_points = []
 
     for i in range(number_of_points):
