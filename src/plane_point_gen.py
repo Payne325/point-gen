@@ -47,7 +47,7 @@ if __name__=="__main__":
 
     points_on_plane = generate_points_on_plane(data["position"], data["vector_normal"], data["radius"], data["number_of_points"])
 
-    outFile = open("Test Data.txt", "w")
+    outFile = open("../Test Data.txt", "w")
 
     outFile.write("Constraint Radius: {}\n".format(data["radius"]))
     outFile.write("Position: {}\n".format(data["position"]))

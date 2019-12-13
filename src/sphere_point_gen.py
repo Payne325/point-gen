@@ -45,7 +45,7 @@ if __name__=="__main__":
 
     points_on_sphere = generate_points_on_sphere(data["position"], data["radius"], data["number_of_points"])
 
-    outFile = open("Test Data.txt", "w")
+    outFile = open("../Test Data.txt", "w")
 
     outFile.write("Radius: {}\n".format(data["radius"]))
     outFile.write("Position: {}\n".format(data["position"]))

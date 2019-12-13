@@ -1,10 +1,10 @@
 import unittest
 import math
-from plane_point_gen import *
+from src.plane_point_gen import *
 
 class TestSpherePointGenerationMethods(unittest.TestCase):
 
-    def test_can_generate_1_points_on_plane_within_a_radius(self):
+    def test_can_generate_1_point_on_plane_within_a_radius(self):
         position = [0, 0, 0]
         normal = [0, 0, 1]
         radius = 5
