@@ -69,22 +69,52 @@ class TestLinePointGenerationMethods(unittest.TestCase):
       self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
    
    def test_can_generate_2_points_on_line_aligned_to_Y_plane(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [500, 72008, -2.515]
+      end_point = [500, -3947.44, -2.515]
+      num_of_points = 2
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
    
    def test_can_generate_20_points_on_line_aligned_to_Y_plane(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [0, 1, 0]
+      end_point = [0, -1000000, 0]
+      num_of_points = 20
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
 
    def test_can_generate_2_points_on_line_aligned_to_Z_plane(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [500, -3947.44, 34.546565]
+      end_point = [500, -3947.44, -2515]
+      num_of_points = 2
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
    
    def test_can_generate_20_points_on_line_aligned_to_Z_plane(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [0, 0, 1]
+      end_point = [0, 0, -1000000]
+      num_of_points = 20
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
 
    def test_can_generate_2_points_on_non_axis_aligned_line(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [500, -3947.44, 34.546565]
+      end_point = [-3947.44, -2515, 500]
+      num_of_points = 2
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
    
    def test_can_generate_20_points_on_non_axis_aligned_line(self):
-      self.assert_(False, "Not yet implemented")
+      start_point = [0.25, 0.25, 0.5]
+      end_point = [0, 0, 1000000]
+      num_of_points = 20
+
+      generated_points = generate_points_on_line(start_point, end_point, num_of_points)
+      self.assert_calculated_points_lie_on_line(start_point, end_point, generated_points)
 
    def test_can_not_generate_points_on_line_with_zero_magnitude(self):
       self.assertRaises(PointGenerationException, generate_points_on_line, [50, 50, 50], [50, 50, 50], 20)
