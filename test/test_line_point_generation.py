@@ -124,26 +124,23 @@ class TestLinePointGenerationMethods(unittest.TestCase):
 
    def distance_between_line_and_point(self, start_point, end_point, test_point):
 
-      v = np.asarray(start_point)
-      w = np.asarray(end_point)
-      test = np.asarray(test_point)
+      s_p = np.asarray(start_point)
+      e_p = np.asarray(end_point)
+      t_p = np.asarray(test_point)
 
-      vec = (w-v)
-      length_squared = pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2)
+      line = (e_p - s_p)
+      line2 = (e_p - t_p)
 
-      if length_squared < 0:
-         length_squared *= -1
+      mag = np.linalg.norm(line)
+      mag2 = np.linalg.norm(line2)
 
-      start_to_point = (test - v)
-      if length_squared == 0.0:
-         return math.sqrt(pow(start_to_point[0], 2) + pow(start_to_point[1], 2) + pow(start_to_point[2], 2))
-         
-      debug = np.dot(start_to_point, vec)
-      t = max(0, min(1, debug / length_squared))
-      projection = v + (t * vec)
+      if mag == 0 or mag2 == 0:
+         return -1
 
-      result_vec = (projection - test)
-      return math.sqrt(pow(result_vec[0], 2) + pow(result_vec[1], 2) + pow(result_vec[2], 2))
+      line = line / mag
+      line2 = line2 / mag2
+
+      return 1.0 - np.dot(line, line2)
 
    def assert_calculated_points_lie_on_line(self, start_point, end_point, generated_points):
       for test_point in generated_points:
